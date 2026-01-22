@@ -1,0 +1,32 @@
+{
+  "id": "10x-team-landing-page",
+  "name": "10x Team Landing Page Builder",
+  "shortDescription": "Create high-converting landing pages with a multi-agent team",
+  "longDescription": "A professional Claude Code plugin that uses 6 specialist agents to create complete landing pages. Includes discovery, copywriting, visual design, build, QA, and launch phases with todo tracking for each.",
+  "category": "Marketing & Sales",
+  "tags": [
+    "landing-page",
+    "marketing",
+    "copywriting",
+    "design",
+    "multi-agent",
+    "automation"
+  ],
+  "features": [
+    "6 specialist agents (Discovery, Copywriting, Design, Build, QA, Launch)",
+    "Phase-wise development with todo tracking",
+    "Project Manager coordination with quality review",
+    "Complete HTML/CSS/JS output",
+    "User testing kit generation",
+    "SEO and deployment checklist",
+    "Worksheets import support"
+  ],
+  "screenshots": [],
+  "changelog": {
+    "2.0.0": "Multi-agent architecture with phase-wise todos, worksheets integration, 10x Team branding"
+  },
+  "support": {
+    "documentation": "README.md",
+    "issues": ""
+  }
+}

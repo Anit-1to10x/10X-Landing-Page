@@ -1,0 +1,53 @@
+{
+  "name": "10x Team Landing Page Skill",
+  "version": "2.0.0",
+  "description": "Multi-agent skill for creating high-converting landing pages with phase-wise development",
+  "permissions": {
+    "allow": [
+      "Read",
+      "Write",
+      "Edit",
+      "MultiEdit",
+      "Glob",
+      "Grep",
+      "Bash",
+      "Bash(git:*)",
+      "Bash(npm:*)",
+      "Bash(npx:*)",
+      "Bash(pnpm:*)",
+      "Bash(yarn:*)",
+      "Bash(bun:*)",
+      "Bash(node:*)",
+      "Bash(docker:*)",
+      "Bash(gh:*)",
+      "Bash(curl:*)",
+      "Bash(mkdir:*)",
+      "Bash(cp:*)",
+      "Bash(mv:*)",
+      "Bash(cat:*)",
+      "Bash(ls:*)",
+      "Bash(find:*)",
+      "Bash(echo:*)",
+      "Bash(touch:*)",
+      "Bash(code:*)",
+      "WebFetch",
+      "WebSearch",
+      "TodoWrite",
+      "NotebookEdit",
+      "Task",
+      "AskFollowupQuestion"
+    ],
+    "deny": [
+      "Bash(rm -rf /)",
+      "Bash(sudo rm:*)",
+      "Bash(:(){ :|:& };:)"
+    ]
+  },
+  "skills": {
+    "landing-page": {
+      "enabled": true,
+      "path": ".claude/skills/landing-page",
+      "entry": "SKILL.md"
+    }
+  }
+}

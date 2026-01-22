@@ -1,0 +1,51 @@
+{
+  "projectName": "10x-vibe-marketing",
+  "businessDescription": "We help Individuals upskill with Agentic Skills",
+  "primaryConversion": "Schedule a demo/call",
+  "targetAudience": {
+    "who": "Professionals wanting to learn AI automation skills",
+    "situation": "Looking to upskill in AI and automation",
+    "problem": "Need to learn AI automation skills for marketing",
+    "previousAttempts": "Generic AI courses that don't focus on marketing applications"
+  },
+  "topObjections": [
+    "Too expensive",
+    "Too complicated",
+    "No time"
+  ],
+  "brandPersonality": ["Modern", "Approachable", "Innovative", "Clear"],
+  "differentiator": "Focused exclusively on marketing through AI skills - not generic AI training",
+  "socialProof": {
+    "testimonials": 0,
+    "customerCount": "",
+    "logos": false,
+    "press": false,
+    "awards": false,
+    "caseStudies": false,
+    "ratings": false,
+    "yearsInBusiness": 0,
+    "certifications": true
+  },
+  "availableAssets": [
+    "Product screenshots",
+    "Demo video",
+    "Logo (high resolution)",
+    "Brand colors defined",
+    "Professional photos",
+    "Illustrations/graphics"
+  ],
+  "technicalPreferences": {
+    "techStack": "nextjs",
+    "integrations": {
+      "email": "",
+      "analytics": "",
+      "crm": "",
+      "payment": "Stripe",
+      "chat": "",
+      "forms": ""
+    },
+    "hosting": "self-hosted"
+  },
+  "collectedAt": "2026-01-16",
+  "status": "input_complete"
+}

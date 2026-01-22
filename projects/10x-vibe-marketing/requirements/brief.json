@@ -1,0 +1,215 @@
+{
+  "projectName": "10x-vibe-marketing",
+  "generatedAt": "2026-01-16",
+  "agentVersion": "discovery-1.0",
+
+  "summary": {
+    "oneLiner": "10x Vibe Marketing helps professionals master AI automation skills specifically for marketing applications",
+    "targetAudience": "Professionals who want to leverage AI for marketing but feel overwhelmed by generic AI courses",
+    "primaryGoal": "Get visitors to schedule a demo/discovery call",
+    "keyDifferentiator": "Exclusively focused on marketing applications of AI - no generic AI fluff"
+  },
+
+  "audienceProfile": {
+    "primarySegment": "Marketing professionals, business owners, and career-changers looking to future-proof their skills",
+    "painPoints": [
+      "Overwhelmed by the pace of AI change in marketing",
+      "Frustrated with generic AI courses that don't apply to their work",
+      "Worried about being left behind as AI transforms marketing",
+      "Wasting time on tools that don't deliver results"
+    ],
+    "desiredOutcome": "Confidently use AI to automate marketing tasks, saving time and getting better results",
+    "currentSituation": "Aware that AI is transforming marketing but unsure how to practically apply it",
+    "awareness_level": "solution_aware",
+    "sophistication": "intermediate",
+    "emotionalDrivers": [
+      "Fear of becoming obsolete",
+      "Excitement about AI possibilities",
+      "Desire to work smarter, not harder",
+      "Pride in staying ahead of the curve"
+    ],
+    "rationalDrivers": [
+      "Time savings through automation",
+      "Competitive advantage in job market",
+      "Measurable improvement in marketing results",
+      "Practical, applicable skills"
+    ]
+  },
+
+  "objectionStrategy": [
+    {
+      "objection": "Too expensive",
+      "type": "price",
+      "intensity": "high",
+      "bestCounter": "ROI focus - the skills pay for themselves through time saved and better results. Plus, compare cost to falling behind competitors.",
+      "proofNeeded": "Show the value of time saved, potential earnings increase, or cost of NOT learning these skills",
+      "pageSection": "benefits"
+    },
+    {
+      "objection": "Too complicated",
+      "type": "effort",
+      "intensity": "high",
+      "bestCounter": "Step-by-step approach designed for marketers, not developers. No coding required. Learn at your own pace.",
+      "proofNeeded": "Show ease of learning, beginner-friendly language, certifications as proof of structured learning",
+      "pageSection": "how_it_works"
+    },
+    {
+      "objection": "No time",
+      "type": "timing",
+      "intensity": "high",
+      "bestCounter": "Learn in short modules. The time invested now saves 10x more time through automation. Even busy professionals find 30 min/day.",
+      "proofNeeded": "Highlight flexible learning, quick wins, and time ROI",
+      "pageSection": "features"
+    }
+  ],
+
+  "conversionStrategy": {
+    "primaryCTA": {
+      "action": "Schedule a demo/call",
+      "buttonText": "Book Your Free Strategy Call",
+      "placement": ["hero", "mid_page", "final"],
+      "urgencyElement": "Limited spots for personalized guidance",
+      "frictionReducer": "Free, no obligation, 15-minute call"
+    },
+    "secondaryCTA": {
+      "action": "Learn more about the curriculum",
+      "forWho": "Not ready to commit but interested"
+    },
+    "conversionPath": {
+      "step1": "Visitor reads headline and recognizes their situation",
+      "step2": "Scrolls through benefits and sees objections addressed",
+      "step3": "Clicks CTA to schedule a free strategy call"
+    }
+  },
+
+  "brandVoice": {
+    "adjectives": ["Modern", "Approachable", "Innovative", "Clear"],
+    "toneDescriptors": [
+      "Confident but not arrogant",
+      "Expert but accessible",
+      "Forward-thinking but practical",
+      "Enthusiastic but grounded"
+    ],
+    "writingStyle": {
+      "sentenceLength": "mixed",
+      "vocabulary": "conversational",
+      "formality": "professional_friendly",
+      "humor": "subtle"
+    },
+    "avoidWords": [
+      "revolutionary", "game-changing", "cutting-edge", "leverage", "synergy",
+      "disrupt", "paradigm", "bleeding edge", "guru", "ninja"
+    ],
+    "useWords": [
+      "practical", "hands-on", "step-by-step", "marketing-focused", "results",
+      "automate", "save time", "skills", "future-proof", "real-world"
+    ]
+  },
+
+  "positioning": {
+    "uniqueValue": "The only AI skills training built exclusively for marketing professionals",
+    "categoryFrame": "AI marketing skills training",
+    "competitors": ["Generic AI courses", "Marketing bootcamps without AI focus", "YouTube tutorials"],
+    "whyDifferent": "While others teach AI broadly, we focus 100% on marketing applications. Every lesson, every exercise, every skill is designed for marketers.",
+    "proofOfDifference": "Curriculum designed around marketing workflows, certifications recognized in marketing industry"
+  },
+
+  "socialProofStrategy": {
+    "strongestProof": "Industry certifications",
+    "proofHierarchy": [
+      "Certifications and credentials",
+      "Curriculum designed by marketing experts",
+      "Real-world marketing applications"
+    ],
+    "microProofForHero": "Industry-recognized certification included",
+    "mainProofSection": "Dedicated credentials/certification section",
+    "testimonialFocus": "Focus on certification value and practical skill application"
+  },
+
+  "pageStructure": {
+    "sections": [
+      {
+        "order": 1,
+        "type": "hero",
+        "purpose": "Capture attention with marketing-specific AI skills promise",
+        "mustInclude": ["Headline about marketing AI skills", "Schedule call CTA", "Certification badge"]
+      },
+      {
+        "order": 2,
+        "type": "problem_agitation",
+        "purpose": "Connect with frustration of generic AI training",
+        "mustInclude": ["Pain points about AI overwhelm", "Wasted time on irrelevant content"]
+      },
+      {
+        "order": 3,
+        "type": "solution_intro",
+        "purpose": "Introduce marketing-focused AI training as the answer",
+        "mustInclude": ["Differentiator - marketing only", "Practical skills focus"]
+      },
+      {
+        "order": 4,
+        "type": "benefits",
+        "purpose": "Show outcomes and address 'too expensive' objection through value",
+        "mustInclude": ["Time savings", "Career advancement", "Practical results", "ROI messaging"]
+      },
+      {
+        "order": 5,
+        "type": "how_it_works",
+        "purpose": "Show simplicity and address 'too complicated' objection",
+        "mustInclude": ["Step-by-step process", "Beginner-friendly messaging", "No coding required"]
+      },
+      {
+        "order": 6,
+        "type": "features",
+        "purpose": "Detail what they get and address 'no time' objection",
+        "mustInclude": ["Flexible learning", "Bite-sized modules", "Quick wins possible"]
+      },
+      {
+        "order": 7,
+        "type": "social_proof",
+        "purpose": "Build trust through certifications",
+        "mustInclude": ["Certification details", "Industry recognition"]
+      },
+      {
+        "order": 8,
+        "type": "faq",
+        "purpose": "Handle remaining objections",
+        "mustInclude": ["Price/value questions", "Time commitment", "Technical requirements"]
+      },
+      {
+        "order": 9,
+        "type": "final_cta",
+        "purpose": "Close with urgency and reassurance",
+        "mustInclude": ["Schedule call CTA", "Risk reversal", "Urgency element"]
+      }
+    ],
+    "estimatedLength": "medium",
+    "scrollDepthGoal": "Get to CTA within 3-4 scroll depths, full page for detail seekers"
+  },
+
+  "copywritingGuidance": {
+    "headlineApproach": "Focus on marketing-specific AI skills that save time and get results. Avoid generic 'learn AI' messaging.",
+    "toneNotes": "Confident expert sharing practical knowledge. Not salesy or hype-driven. Modern and fresh but substantive.",
+    "mustMentionPoints": [
+      "Marketing-specific (not generic AI)",
+      "Practical, hands-on skills",
+      "Certification included",
+      "For busy professionals",
+      "No coding required"
+    ],
+    "avoidMentioning": [
+      "Get rich quick promises",
+      "Guaranteed results",
+      "Overnight transformation",
+      "Passive income",
+      "Beating the competition"
+    ]
+  },
+
+  "designGuidance": {
+    "visualMood": "Modern tech meets approachable education - innovative but welcoming",
+    "colorDirection": "Fresh, modern palette. Consider blues/teals for trust + vibrant accent for innovation. Avoid corporate gray.",
+    "imageryStyle": "Product screenshots, professional photos of learning, abstract tech elements. Show real UI if available.",
+    "layoutPriority": "Clean and scannable. Strong visual hierarchy. CTA buttons prominent. Mobile-first thinking."
+  }
+}

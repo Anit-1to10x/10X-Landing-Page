@@ -1,0 +1,56 @@
+{
+  "name": "10x-team-landing-page",
+  "displayName": "10x Team Landing Page Builder",
+  "version": "2.0.0",
+  "description": "Create high-converting landing pages using a multi-agent team with phase-wise development",
+  "author": "10x Team",
+  "license": "Proprietary",
+  "repository": "",
+  "keywords": [
+    "landing-page",
+    "marketing",
+    "conversion",
+    "copywriting",
+    "web-design",
+    "multi-agent"
+  ],
+  "engines": {
+    "claude-code": ">=1.0.0"
+  },
+  "components": {
+    "commands": [
+      {
+        "name": "landing-page",
+        "file": ".claude/commands/landing-page.md",
+        "description": "Create a new landing page project"
+      },
+      {
+        "name": "lp",
+        "file": ".claude/commands/lp.md",
+        "description": "Shortcut for /landing-page"
+      }
+    ],
+    "skills": [
+      {
+        "name": "landing-page",
+        "path": ".claude/skills/landing-page",
+        "description": "Multi-agent landing page creation skill"
+      }
+    ],
+    "agents": [
+      "project-manager",
+      "discovery",
+      "copywriting",
+      "design",
+      "build",
+      "qa",
+      "launch"
+    ]
+  },
+  "directories": {
+    "commands": ".claude/commands",
+    "skills": ".claude/skills",
+    "output": "projects",
+    "preferences": "user-preferences"
+  }
+}
