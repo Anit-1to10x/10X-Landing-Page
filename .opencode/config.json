@@ -1,0 +1,37 @@
+{
+  "skills": {
+    "discovery": [
+      ".opencode/skills/",
+      ".claude/skills/"
+    ]
+  },
+  "registeredSkills": [
+    {
+      "name": "landing-page",
+      "description": "Create high-converting landing pages using 10x Team's multi-agent methodology",
+      "triggers": ["/landing-page", "/lp"],
+      "entryPoint": ".opencode/skills/landing-page/SKILL.md",
+      "version": "2.1.0",
+      "agents": [
+        "agents/project-manager.md",
+        "agents/discovery-agent.md",
+        "agents/copywriting-agent.md",
+        "agents/design-agent.md",
+        "agents/build-agent.md",
+        "agents/qa-agent.md",
+        "agents/launch-agent.md"
+      ],
+      "knowledge": [
+        "knowledge/headline-formulas.md",
+        "knowledge/copy-principles.md",
+        "knowledge/color-psychology.md",
+        "knowledge/typography-pairings.md",
+        "knowledge/layout-patterns.md",
+        "knowledge/visual-interest.md",
+        "knowledge/accessibility-checklist.md",
+        "knowledge/seo-checklist.md",
+        "knowledge/testing-scripts.md"
+      ]
+    }
+  ]
+}

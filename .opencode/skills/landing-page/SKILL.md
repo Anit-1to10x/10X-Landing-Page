@@ -39,9 +39,9 @@ This is **10x Team's proprietary landing page methodology**.
 This skill's files are located relative to this SKILL.md file:
 
 ```
-.claude/skills/landing-page/             ← YOU ARE HERE
-├── SKILL.md                             ← This file
-├── agents/                              ← 7 specialist agent prompts
+.opencode/skills/landing-page/          ← YOU ARE HERE
+├── SKILL.md                            ← This file
+├── agents/                             ← 7 specialist agent prompts
 │   ├── project-manager.md
 │   ├── discovery-agent.md
 │   ├── copywriting-agent.md
@@ -49,7 +49,7 @@ This skill's files are located relative to this SKILL.md file:
 │   ├── build-agent.md
 │   ├── qa-agent.md
 │   └── launch-agent.md
-├── knowledge/                           ← 9 reference knowledge files
+├── knowledge/                          ← 9 reference knowledge files
 │   ├── headline-formulas.md
 │   ├── copy-principles.md
 │   ├── color-psychology.md
@@ -59,7 +59,7 @@ This skill's files are located relative to this SKILL.md file:
 │   ├── accessibility-checklist.md
 │   ├── seo-checklist.md
 │   └── testing-scripts.md
-└── scripts/                             ← 8 generator scripts (Node.js)
+└── scripts/                            ← 8 generator scripts (Node.js)
     ├── init-project.js
     ├── generate-project.js
     ├── generate-html.js
@@ -73,7 +73,7 @@ This skill's files are located relative to this SKILL.md file:
 **Path Resolution**: When loading agent or knowledge files, resolve paths relative to this SKILL.md. For example:
 - Agent files: `agents/project-manager.md` (relative to this directory)
 - Knowledge files: `knowledge/headline-formulas.md` (relative to this directory)
-- If your runtime uses absolute paths, prepend `.claude/skills/landing-page/`
+- If your runtime uses absolute paths, prepend `.opencode/skills/landing-page/`
 
 ---
 
@@ -109,8 +109,8 @@ Before starting, self-assess your capability tier and adapt the workflow accordi
 
 Do NOT load all knowledge files at once. Load them progressively per phase:
 
-| Phase | Files to Load | ~Tokens |
-|-------|--------------|---------|
+| Phase | Files to Load (relative to `knowledge/`) | ~Tokens |
+|-------|------------------------------------------|---------|
 | Discovery | None (uses user input directly) | 0 |
 | Copywriting | `headline-formulas.md`, `copy-principles.md` | ~2k |
 | Design | `color-psychology.md`, `typography-pairings.md`, `layout-patterns.md`, `visual-interest.md` | ~6k |
@@ -300,29 +300,10 @@ Q10: What tech stack do you want for your landing page?
 
      Options:
      1. Static HTML/CSS/JS (Recommended for simplicity)
-        - Single file deployment
-        - Works anywhere
-        - Best for: Simple landing pages, quick deployment
-
      2. React (Vite)
-        - Component-based
-        - Modern development experience
-        - Best for: If you plan to extend with more pages/features
-
      3. Next.js
-        - React + SSR/SSG
-        - Built-in routing
-        - Best for: SEO-focused sites, larger projects
-
      4. Astro
-        - Zero JS by default
-        - Great performance
-        - Best for: Content-focused sites, maximum speed
-
      5. Vue (Vite)
-        - Component-based
-        - Simple and approachable
-        - Best for: Vue ecosystem preference
 
      Your choice (1-5):
 ```
@@ -330,25 +311,11 @@ Q10: What tech stack do you want for your landing page?
 **10. Integrations & Hosting**
 ```
 Q11: Any specific integrations needed?
-
-     [ ] Email capture (Mailchimp, ConvertKit, etc.)
-     [ ] Analytics (Google Analytics, Plausible, etc.)
-     [ ] CRM (HubSpot, Salesforce, etc.)
-     [ ] Payment (Stripe, PayPal, etc.)
-     [ ] Chat widget (Intercom, Crisp, etc.)
-     [ ] Form backend (Formspree, Netlify Forms, etc.)
-
-     Specify which ones:
+     [ ] Email capture   [ ] Analytics   [ ] CRM
+     [ ] Payment         [ ] Chat widget [ ] Form backend
 
 Q12: Preferred hosting platform?
-
-     1. Netlify (Recommended - free tier, easy deployment)
-     2. Vercel
-     3. GitHub Pages
-     4. Cloudflare Pages
-     5. Self-hosted / Other
-
-     Your choice:
+     1. Netlify  2. Vercel  3. GitHub Pages  4. Cloudflare Pages  5. Other
 ```
 
 ### Save User Inputs
@@ -431,39 +398,11 @@ Once user confirms, hand off to Project Manager Agent:
 ```
 Great! I'm now handing this to our specialist team.
 
-Our team will work through these phases:
-
-PHASE 1: Discovery
-- [ ] Deep analysis of requirements
-- [ ] Audience profiling
-- [ ] Objection mapping
-
-PHASE 2: Copywriting
-- [ ] Headline creation
-- [ ] Body copy writing
-- [ ] CTA optimization
-
-PHASE 3: Visual Design
-- [ ] Typography selection
-- [ ] Color palette creation
-- [ ] Layout strategy
-
-PHASE 4: Build
-- [ ] HTML structure
-- [ ] CSS styling
-- [ ] JavaScript interactions
-
-PHASE 5: QA & Testing
-- [ ] Testing script creation
-- [ ] Success criteria definition
-
-PHASE 6: Launch Prep
-- [ ] SEO configuration
-- [ ] Analytics setup
-- [ ] Deployment checklist
+Our team will work through 6 phases:
+1. Discovery   2. Copywriting   3. Visual Design
+4. Build       5. QA & Testing  6. Launch Prep
 
 I'll show you the final result when everything is ready.
-
 Working on your landing page...
 ```
 
@@ -474,21 +413,6 @@ Each agent MUST track their progress. Use the best available method:
 - **If TaskCreate/TaskUpdate is available**: Use task management tools
 - **Otherwise**: Track progress inline with status markers in output files
 
-Example agent progress structure:
-```json
-{
-  "phase": "copywriting",
-  "agent": "Copywriting Agent",
-  "todos": [
-    {"content": "Generate 10 headline options", "status": "completed"},
-    {"content": "Validate headlines against rules", "status": "completed"},
-    {"content": "Write hero section copy", "status": "in_progress"},
-    {"content": "Write feature descriptions", "status": "pending"},
-    {"content": "Create CTA variations", "status": "pending"}
-  ]
-}
-```
-
 ### Invoke Project Manager Agent
 
 **Agent File**: `agents/project-manager.md`
@@ -498,7 +422,7 @@ Example agent progress structure:
 {
   "userPreferencesPath": "user-preferences/{project-name}.json",
   "projectPath": "projects/{project-name}/",
-  "skillDir": ".claude/skills/landing-page",
+  "skillDir": ".opencode/skills/landing-page",
   "agents": {
     "discovery": "agents/discovery-agent.md",
     "copywriting": "agents/copywriting-agent.md",
