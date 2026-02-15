@@ -3,7 +3,7 @@ name: landing-page
 description: Create high-converting landing pages using 10x Team's multi-agent methodology. Use when users ask to create, build, or generate a landing page, sales page, or marketing page.
 version: 2.1.0
 author: 10x Team
-license: MIT
+license: 10x Team Proprietary
 triggers:
   - /landing-page
   - /lp

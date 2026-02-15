@@ -268,4 +268,4 @@ Any tool that supports the Agent Skills open standard will discover and load `SK
 
 ## License
 
-MIT
+10x Team Proprietary - For use with 10x Team subscription.
