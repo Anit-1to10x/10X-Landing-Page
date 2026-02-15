@@ -1,11 +1,11 @@
 {
   "name": "10x-team-landing-page",
   "displayName": "10x Team Landing Page Builder",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Create high-converting landing pages using a multi-agent team with phase-wise development",
   "author": "10x Team",
-  "license": "Proprietary",
-  "repository": "",
+  "license": "10x Team Proprietary",
+  "repository": "https://github.com/Anit-1to10x/10X-Landing-Page",
   "keywords": [
     "landing-page",
     "marketing",
@@ -18,23 +18,12 @@
     "claude-code": ">=1.0.0"
   },
   "components": {
-    "commands": [
-      {
-        "name": "landing-page",
-        "file": ".claude/commands/landing-page.md",
-        "description": "Create a new landing page project"
-      },
-      {
-        "name": "lp",
-        "file": ".claude/commands/lp.md",
-        "description": "Shortcut for /landing-page"
-      }
-    ],
     "skills": [
       {
         "name": "landing-page",
         "path": ".claude/skills/landing-page",
-        "description": "Multi-agent landing page creation skill"
+        "description": "Multi-agent landing page creation skill",
+        "triggers": ["/landing-page", "/lp"]
       }
     ],
     "agents": [
@@ -48,7 +37,6 @@
     ]
   },
   "directories": {
-    "commands": ".claude/commands",
     "skills": ".claude/skills",
     "output": "projects",
     "preferences": "user-preferences"
