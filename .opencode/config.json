@@ -8,30 +8,101 @@
   "registeredSkills": [
     {
       "name": "landing-page",
-      "description": "Create high-converting landing pages using 10x Team's multi-agent methodology",
+      "description": "Full multi-agent landing page creation with 12 domain categories and intelligent skill routing",
       "triggers": ["/landing-page", "/lp"],
       "entryPoint": ".opencode/skills/landing-page/SKILL.md",
-      "version": "2.1.0",
-      "agents": [
-        "agents/project-manager.md",
-        "agents/discovery-agent.md",
-        "agents/copywriting-agent.md",
-        "agents/design-agent.md",
-        "agents/build-agent.md",
-        "agents/qa-agent.md",
-        "agents/launch-agent.md"
-      ],
-      "knowledge": [
-        "knowledge/headline-formulas.md",
-        "knowledge/copy-principles.md",
-        "knowledge/color-psychology.md",
-        "knowledge/typography-pairings.md",
-        "knowledge/layout-patterns.md",
-        "knowledge/visual-interest.md",
-        "knowledge/accessibility-checklist.md",
-        "knowledge/seo-checklist.md",
-        "knowledge/testing-scripts.md"
-      ]
+      "version": "3.0.0"
+    },
+    {
+      "name": "lp-copy",
+      "description": "Optimize headlines, body copy, CTAs, and microcopy",
+      "triggers": ["/lp-copy"],
+      "entryPoint": ".opencode/skills/lp-copy/SKILL.md",
+      "version": "3.0.0"
+    },
+    {
+      "name": "lp-seo",
+      "description": "SEO audit — meta tags, schema, Open Graph, keywords",
+      "triggers": ["/lp-seo"],
+      "entryPoint": ".opencode/skills/lp-seo/SKILL.md",
+      "version": "3.0.0"
+    },
+    {
+      "name": "lp-design",
+      "description": "Visual design system — colors, typography, layout",
+      "triggers": ["/lp-design"],
+      "entryPoint": ".opencode/skills/lp-design/SKILL.md",
+      "version": "3.0.0"
+    },
+    {
+      "name": "lp-analytics",
+      "description": "Analytics setup — GA4, pixels, events, UTM tracking",
+      "triggers": ["/lp-analytics"],
+      "entryPoint": ".opencode/skills/lp-analytics/SKILL.md",
+      "version": "3.0.0"
+    },
+    {
+      "name": "lp-inject",
+      "description": "JavaScript injection — tracking, chat widgets, custom code",
+      "triggers": ["/lp-inject"],
+      "entryPoint": ".opencode/skills/lp-inject/SKILL.md",
+      "version": "3.0.0"
+    },
+    {
+      "name": "lp-audit",
+      "description": "7-point page audit — copy, design, SEO, a11y, speed, CRO, mobile",
+      "triggers": ["/lp-audit"],
+      "entryPoint": ".opencode/skills/lp-audit/SKILL.md",
+      "version": "3.0.0"
+    },
+    {
+      "name": "lp-optimize",
+      "description": "Conversion rate optimization — LIFT analysis, friction audit",
+      "triggers": ["/lp-optimize"],
+      "entryPoint": ".opencode/skills/lp-optimize/SKILL.md",
+      "version": "3.0.0"
+    },
+    {
+      "name": "lp-funnel",
+      "description": "Multi-step funnel design — lead magnets, upsells, email sequences",
+      "triggers": ["/lp-funnel"],
+      "entryPoint": ".opencode/skills/lp-funnel/SKILL.md",
+      "version": "3.0.0"
+    },
+    {
+      "name": "lp-leads",
+      "description": "Lead capture — forms, popups, exit-intent, email integration",
+      "triggers": ["/lp-leads"],
+      "entryPoint": ".opencode/skills/lp-leads/SKILL.md",
+      "version": "3.0.0"
+    },
+    {
+      "name": "lp-abtest",
+      "description": "A/B test setup — variants, tracking, hypothesis, analysis",
+      "triggers": ["/lp-abtest"],
+      "entryPoint": ".opencode/skills/lp-abtest/SKILL.md",
+      "version": "3.0.0"
+    },
+    {
+      "name": "lp-competitor",
+      "description": "Competitor analysis — teardown, positioning, counter-strategies",
+      "triggers": ["/lp-competitor"],
+      "entryPoint": ".opencode/skills/lp-competitor/SKILL.md",
+      "version": "3.0.0"
+    },
+    {
+      "name": "lp-content",
+      "description": "Content strategy — testimonials, case studies, social proof",
+      "triggers": ["/lp-content"],
+      "entryPoint": ".opencode/skills/lp-content/SKILL.md",
+      "version": "3.0.0"
+    },
+    {
+      "name": "lp-speed",
+      "description": "Performance optimization — Core Web Vitals, images, lazy loading",
+      "triggers": ["/lp-speed"],
+      "entryPoint": ".opencode/skills/lp-speed/SKILL.md",
+      "version": "3.0.0"
     }
   ]
 }

@@ -1,6 +1,6 @@
-# 10x Team Landing Page Skill
+# 10x Team Marketing Agency Suite
 
-A production-grade multi-agent skill for creating high-converting landing pages. Works across **every major AI coding agent, IDE, and CLI**.
+A complete AI-powered marketing agency — **14 specialist skills** for creating, optimizing, and converting landing pages across **12 domain categories**. Works across **every major AI coding agent, IDE, and CLI**.
 
 ## Compatible With
 
@@ -36,17 +36,80 @@ opencode
 /landing-page new
 
 # Use with any compatible agent
-# Just open this folder — the skill is auto-discovered
+# Just open this folder — skills are auto-discovered
 ```
 
-## What It Does
+## The 14-Skill Suite
 
-You answer 12 questions about your business. Six specialist AI agents then build you a complete landing page:
+### Core Skill
+| Command | What it does |
+|---------|-------------|
+| `/landing-page` or `/lp` | Full multi-agent landing page creation — asks 12 questions, runs 6 specialist agents, produces production-ready code |
+
+### Companion Skills (use directly or auto-invoked)
+| Command | What it does |
+|---------|-------------|
+| `/lp-copy` | Optimize headlines, body copy, CTAs, and microcopy |
+| `/lp-seo` | SEO audit — meta tags, schema markup, Open Graph, keywords |
+| `/lp-design` | Design system — colors, typography, spacing, CSS variables |
+| `/lp-analytics` | Analytics setup — GA4, Meta Pixel, events, UTM strategy |
+| `/lp-inject` | JavaScript injection — tracking scripts, chat widgets, custom code |
+| `/lp-audit` | 7-point page audit — copy, design, SEO, a11y, speed, CRO, mobile |
+| `/lp-optimize` | CRO analysis — LIFT model, friction audit, conversion psychology |
+| `/lp-funnel` | Funnel builder — multi-page flows, upsells, email sequences |
+| `/lp-leads` | Lead capture — forms, popups, exit-intent, email integration |
+| `/lp-abtest` | A/B test setup — variants, tracking, hypothesis, analysis |
+| `/lp-competitor` | Competitor teardown — positioning, gaps, counter-strategies |
+| `/lp-content` | Content strategy — testimonials, case studies, social proof |
+| `/lp-speed` | Performance — Core Web Vitals, images, lazy loading, minification |
+
+## 12 Domain Categories
+
+When you run `/landing-page new`, you choose your page type. Each domain generates a **different page structure** with domain-appropriate sections, CTAs, and data points:
+
+| # | Domain | Primary CTA | Example Sections |
+|---|--------|-------------|------------------|
+| 1 | **SaaS / Software** | Start Free Trial | Hero, Social Proof Bar, Features, How It Works, Pricing, FAQ |
+| 2 | **Ecommerce / Product** | Add to Cart | Product Gallery, Specs, Reviews, Trust Signals, Cross-Sell |
+| 3 | **Portfolio / Personal** | Hire Me | Featured Work, Skills, About, Contact |
+| 4 | **IT Support / Services** | Get Consultation | Pain Points, Services, Process, Case Studies, Quote Form |
+| 5 | **Event / Webinar** | Register Now | Speakers, Agenda, Countdown Timer, Registration Form |
+| 6 | **Demo / Product Demo** | Book a Demo | Demo Video, Benefits, Booking Calendar |
+| 7 | **Lead Magnet** | Download Free | What's Inside, Author Credibility, Email Capture |
+| 8 | **Agency / Services** | Get a Quote | Services, Process, Results, Client Logos, Contact Form |
+| 9 | **App Download** | Get the App | App Screenshots, Store Badges, Ratings |
+| 10 | **Coming Soon** | Join Waitlist | Teaser, Countdown, Email Capture |
+| 11 | **Nonprofit / Cause** | Donate Now | Impact Stats, Stories, Transparency, Donation Tiers |
+| 12 | **Real Estate** | Schedule Viewing | Photo Gallery, Property Details, Map, Agent Info |
+
+## Intelligent Skill Routing
+
+The system **automatically decides** which companion skills to invoke based on:
+
+1. **Domain category** — SaaS auto-invokes SEO + Analytics; Ecommerce auto-invokes Speed + SEO
+2. **Your prompt** — saying "with SEO" triggers `/lp-seo`; saying "with analytics" triggers `/lp-analytics`
+3. **Token efficiency** — simple requests (e.g., "create a portfolio page") skip unnecessary skills
 
 ```
-You answer questions
+"Create a SaaS landing page"
+→ Core pipeline + SEO + Analytics (auto-invoked for SaaS)
+
+"Create a portfolio page"
+→ Core pipeline only (lightweight domain, minimal skills)
+
+"Create a landing page with everything — SEO, analytics, speed, A/B test"
+→ Core pipeline + ALL mentioned skills
+
+"Create an ecommerce product page with lead capture"
+→ Core pipeline + SEO + Speed (auto) + Leads (explicit)
+```
+
+## How It Works
+
+```
+You answer questions (including domain selection)
        ↓
-Discovery Agent      → Strategic brief
+Discovery Agent      → Strategic brief (domain-specific structure)
        ↓
 Copywriting Agent    → Headlines, body copy, CTAs
        ↓
@@ -57,6 +120,8 @@ Build Agent          → Production HTML/CSS/JS (or React/Next/Astro/Vue)
 QA Agent             → User testing scripts
        ↓
 Launch Agent         → SEO, analytics, deployment checklist
+       ↓
+[Conditional Skills] → SEO, Analytics, Speed, Leads, etc. (if triggered)
 ```
 
 **Output**: A complete `projects/{name}/` folder with production-ready code, testing kit, and launch checklist.
@@ -73,139 +138,65 @@ Launch Agent         → SEO, analytics, deployment checklist
 
 ## Model Adaptation
 
-This skill adapts to your model's capability automatically:
-
 | Tier | Models | Behavior |
 |------|--------|----------|
 | **Tier 1** | Claude Opus 4.6, GPT-5.3, Claude Sonnet 4.5 | Full 6-phase pipeline, rich outputs, PM review with 2 revision cycles |
 | **Tier 2** | Big Pickle, Gemini 2.5 Pro/Flash, Claude Sonnet 4.0 | Sequential phases, on-demand knowledge loading, 1 revision max |
 | **Tier 3** | Claude Haiku, smaller open-weight models | Combined 3-phase flow, minimal knowledge loading, no revision cycle |
 
-Models self-assess based on context window and reasoning capability. Every tier produces a complete landing page — higher tiers just do more refinement.
+## Knowledge Base (18 files)
 
-## Commands
-
-```
-/landing-page new           # Start new project
-/landing-page resume {name} # Continue existing project
-/landing-page list          # Show all projects
-/landing-page edit {name}   # Modify existing project
-/lp                         # Shortcut for /landing-page new
-```
-
-## Architecture
-
-### Multi-Agent System
-
-```
-USER INPUT (12 questions)
-    │
-    ▼
-┌────────────────────────────────────────────────┐
-│               MAIN SKILL                       │
-│         (Collects requirements)                │
-│   Saves to: user-preferences/{project}.json    │
-└────────────────────────────────────────────────┘
-    │
-    ▼
-┌────────────────────────────────────────────────┐
-│          PROJECT MANAGER AGENT                 │
-│               (Judge)                          │
-│                                                │
-│  Orchestrates 6 specialists in sequence        │
-│  Reviews each output against your requirements │
-│  Approves or sends back for revision           │
-└────────────────────────────────────────────────┘
-    │
-    ├──► Discovery Agent      → requirements/brief.json
-    ├──► Copywriting Agent    → copy/headlines.md, copy/page-copy.md
-    ├──► Design Agent         → design/strategy.md, colors.json, typography.json
-    ├──► Build Agent          → build/ (tech-stack specific)
-    ├──► QA Agent             → testing/test-kit.md
-    └──► Launch Agent         → launch/checklist.md, launch/maintenance.md
-```
-
-### Agent → Knowledge Mapping
-
-Each agent loads only the knowledge files it needs (progressive loading saves context):
-
-| Agent | Knowledge Files Loaded | ~Tokens |
-|-------|----------------------|---------|
-| Discovery | None (uses user input) | 0 |
-| Copywriting | `headline-formulas.md`, `copy-principles.md` | ~2k |
-| Design | `color-psychology.md`, `typography-pairings.md`, `layout-patterns.md`, `visual-interest.md` | ~6k |
-| Build | `accessibility-checklist.md`, `layout-patterns.md`, `visual-interest.md` | ~5k |
-| QA | `testing-scripts.md` | ~2k |
-| Launch | `seo-checklist.md` | ~2k |
-
-## Project Output
-
-```
-projects/{project-name}/
-├── requirements/
-│   └── brief.json           # Strategic brief
-├── copy/
-│   ├── headlines.md         # Headlines with rationale + rejected options
-│   └── page-copy.md         # Complete page copy by section
-├── design/
-│   ├── strategy.md          # Visual design strategy
-│   ├── colors.json          # Color palette (WCAG AA compliant)
-│   └── typography.json      # Font system with responsive scale
-├── build/                   # Production code (varies by tech stack)
-│   ├── index.html
-│   ├── css/styles.css
-│   └── js/main.js
-├── testing/
-│   └── test-kit.md          # 10-second test + full user testing script
-├── launch/
-│   ├── checklist.md         # Pre/post deployment checklist
-│   └── maintenance.md       # Ongoing maintenance guide
-├── summary.md               # Project summary
-└── status.json              # Build status tracking
-```
+| File | Used By | Contains |
+|------|---------|----------|
+| `domain-templates.md` | Discovery | 12 domain categories with section structures and routing rules |
+| `headline-formulas.md` | Copywriting | 6 headline patterns, validation rules, subhead formulas |
+| `copy-principles.md` | Copywriting | 11 copy commandments, CTA guidelines, social proof ranking |
+| `color-psychology.md` | Design | Color meanings, brand personality mapping, palette structure |
+| `typography-pairings.md` | Design | Font pairings by brand type, responsive type scale |
+| `layout-patterns.md` | Design, Build | 10 ATF layouts, 18 section layouts, page structure template |
+| `visual-interest.md` | Design, Build | CSS techniques for text effects, depth, backgrounds, animation |
+| `accessibility-checklist.md` | Build, Audit | WCAG AA requirements, semantic HTML, contrast, keyboard nav |
+| `seo-checklist.md` | Launch, SEO | Meta tags, Open Graph, Twitter Cards, structured data, sitemap |
+| `testing-scripts.md` | QA | 10-second test, full user testing script, analysis templates |
+| `cro-principles.md` | Optimize, Audit | LIFT model, friction audit, conversion psychology |
+| `analytics-setup.md` | Analytics, Inject | GA4, Meta Pixel, Google Ads, events, data layer, UTM |
+| `funnel-patterns.md` | Funnel | 6 funnel types, page sequences, email frameworks |
+| `lead-capture.md` | Leads, Optimize | 8 capture mechanisms, form optimization, GDPR |
+| `competitor-analysis.md` | Competitor | 5-step teardown, SWOT, positioning matrix |
+| `speed-optimization.md` | Speed, Audit | Core Web Vitals, image optimization, lazy loading |
+| `abtest-framework.md` | A/B Test | Hypothesis template, sample size, significance |
+| `js-injection.md` | Inject, Analytics | Script loading patterns, CSP, debug mode |
 
 ## Repo Structure
 
 ```
 .
 ├── .claude/                          # Claude Code / Codex / Cursor
-│   └── skills/landing-page/
-│       ├── SKILL.md                  # Skill entry point
-│       ├── agents/                   # 7 specialist agent prompts
-│       │   ├── project-manager.md
-│       │   ├── discovery-agent.md
-│       │   ├── copywriting-agent.md
-│       │   ├── design-agent.md
-│       │   ├── build-agent.md
-│       │   ├── qa-agent.md
-│       │   └── launch-agent.md
-│       ├── knowledge/                # 9 reference knowledge files
-│       │   ├── headline-formulas.md
-│       │   ├── copy-principles.md
-│       │   ├── color-psychology.md
-│       │   ├── typography-pairings.md
-│       │   ├── layout-patterns.md
-│       │   ├── visual-interest.md
-│       │   ├── accessibility-checklist.md
-│       │   ├── seo-checklist.md
-│       │   └── testing-scripts.md
-│       └── scripts/                  # 8 Node.js generator scripts
-│           ├── init-project.js
-│           ├── generate-project.js
-│           ├── generate-html.js
-│           ├── generate-react.js
-│           ├── generate-nextjs.js
-│           ├── generate-astro.js
-│           ├── generate-vue.js
-│           └── list-projects.js
+│   └── skills/
+│       ├── landing-page/             # Core multi-agent skill
+│       │   ├── SKILL.md
+│       │   ├── agents/    (7 files)
+│       │   ├── knowledge/ (18 files)
+│       │   └── scripts/   (8 files)
+│       ├── lp-copy/SKILL.md          # Copy optimizer
+│       ├── lp-seo/SKILL.md           # SEO optimizer
+│       ├── lp-design/SKILL.md        # Design system
+│       ├── lp-analytics/SKILL.md     # Analytics setup
+│       ├── lp-inject/SKILL.md        # JS injection
+│       ├── lp-audit/SKILL.md         # Page audit
+│       ├── lp-optimize/SKILL.md      # CRO optimizer
+│       ├── lp-funnel/SKILL.md        # Funnel builder
+│       ├── lp-leads/SKILL.md         # Lead capture
+│       ├── lp-abtest/SKILL.md        # A/B testing
+│       ├── lp-competitor/SKILL.md    # Competitor analysis
+│       ├── lp-content/SKILL.md       # Content strategy
+│       └── lp-speed/SKILL.md         # Speed optimizer
 │
 ├── .opencode/                        # OpenCode CLI / TUI
-│   ├── config.json                   # Skill registration
-│   └── skills/landing-page/          # Full standalone mirror
-│       ├── SKILL.md
-│       ├── agents/    (7 files)
-│       ├── knowledge/ (9 files)
-│       └── scripts/   (8 files)
+│   ├── config.json
+│   └── skills/                       # Full standalone mirror (14 skills)
+│       ├── landing-page/
+│       ├── lp-copy/ ... lp-speed/
 │
 ├── projects/                         # Generated project output
 ├── user-preferences/                 # Saved user inputs
@@ -213,58 +204,7 @@ projects/{project-name}/
 └── README.md                         # This file
 ```
 
-Both `.claude/` and `.opencode/` are **full standalone copies** — no cross-references between them. Each works independently with its respective tool.
-
-## Knowledge Base
-
-| File | Used By | Contains |
-|------|---------|----------|
-| `headline-formulas.md` | Copywriting | 6 headline patterns, validation rules, subhead formulas |
-| `copy-principles.md` | Copywriting | 11 copy commandments, CTA guidelines, social proof ranking |
-| `color-psychology.md` | Design | Color meanings, brand personality mapping, palette structure |
-| `typography-pairings.md` | Design | Font pairings by brand type, responsive type scale |
-| `layout-patterns.md` | Design, Build | 10 ATF layouts, 18 section layouts, page structure template |
-| `visual-interest.md` | Design, Build | CSS techniques for text effects, depth, backgrounds, animation |
-| `accessibility-checklist.md` | Build | WCAG AA requirements, semantic HTML, contrast, keyboard nav |
-| `seo-checklist.md` | Launch | Meta tags, Open Graph, Twitter Cards, structured data, sitemap |
-| `testing-scripts.md` | QA | 10-second test, full user testing script, analysis templates |
-
-Every knowledge file has a **TL;DR comment** at the top so smaller models can decide whether to load the full file.
-
-## Scripts
-
-| Script | Purpose |
-|--------|---------|
-| `init-project.js` | Create project folder structure |
-| `generate-project.js` | Route to correct tech-stack generator |
-| `generate-html.js` | Generate static HTML/CSS/JS |
-| `generate-react.js` | Generate React 18 + Vite project |
-| `generate-nextjs.js` | Generate Next.js 14 (App Router) project |
-| `generate-astro.js` | Generate Astro 4 project |
-| `generate-vue.js` | Generate Vue 3 + Vite project |
-| `list-projects.js` | List all projects with status |
-
-## How It Works With Different Tools
-
-### Claude Code / Claude Codex
-```bash
-claude                    # or run via Codex
-/landing-page new
-```
-Discovers skill from `.claude/skills/landing-page/SKILL.md`.
-
-### OpenCode
-```bash
-opencode
-/landing-page new
-```
-Discovers skill from `.opencode/skills/landing-page/SKILL.md` (or falls back to `.claude/skills/`).
-
-### Cursor / Windsurf / VS Code
-Open this folder as your project root. The IDE agent reads `.claude/skills/` automatically. Trigger with `/landing-page` in the AI chat.
-
-### Antigravity / Gemini CLI / Aider / Other Agents
-Any tool that supports the Agent Skills open standard will discover and load `SKILL.md` from either `.claude/skills/` or `.opencode/skills/`. Just open this folder and invoke `/landing-page`.
+Both `.claude/` and `.opencode/` are **full standalone copies** — no cross-references between them.
 
 ## License
 

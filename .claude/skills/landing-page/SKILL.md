@@ -1,7 +1,7 @@
 ---
 name: landing-page
-description: Create high-converting landing pages using 10x Team's multi-agent methodology. Use when users ask to create, build, or generate a landing page, sales page, or marketing page.
-version: 2.1.0
+description: Create high-converting landing pages using 10x Team's multi-agent methodology. Supports 12 domain categories (SaaS, ecommerce, portfolio, IT support, events, etc.) with intelligent skill orchestration that auto-invokes SEO, analytics, speed, and other specialist skills only when needed.
+version: 3.0.0
 author: 10x Team
 license: 10x Team Proprietary
 triggers:
@@ -49,7 +49,7 @@ This skill's files are located relative to this SKILL.md file:
 │   ├── build-agent.md
 │   ├── qa-agent.md
 │   └── launch-agent.md
-├── knowledge/                           ← 9 reference knowledge files
+├── knowledge/                           ← 18 reference knowledge files
 │   ├── headline-formulas.md
 │   ├── copy-principles.md
 │   ├── color-psychology.md
@@ -58,7 +58,16 @@ This skill's files are located relative to this SKILL.md file:
 │   ├── visual-interest.md
 │   ├── accessibility-checklist.md
 │   ├── seo-checklist.md
-│   └── testing-scripts.md
+│   ├── testing-scripts.md
+│   ├── domain-templates.md              ← NEW: 12 domain categories
+│   ├── cro-principles.md                ← NEW: CRO frameworks
+│   ├── analytics-setup.md               ← NEW: GA4, pixels, events
+│   ├── funnel-patterns.md               ← NEW: Funnel types
+│   ├── lead-capture.md                  ← NEW: Forms, popups
+│   ├── competitor-analysis.md           ← NEW: Teardown framework
+│   ├── speed-optimization.md            ← NEW: Core Web Vitals
+│   ├── abtest-framework.md              ← NEW: A/B testing
+│   └── js-injection.md                  ← NEW: Script injection
 └── scripts/                             ← 8 generator scripts (Node.js)
     ├── init-project.js
     ├── generate-project.js
@@ -111,12 +120,13 @@ Do NOT load all knowledge files at once. Load them progressively per phase:
 
 | Phase | Files to Load | ~Tokens |
 |-------|--------------|---------|
-| Discovery | None (uses user input directly) | 0 |
+| Discovery | `domain-templates.md` (load domain section only) | ~1k |
 | Copywriting | `headline-formulas.md`, `copy-principles.md` | ~2k |
 | Design | `color-psychology.md`, `typography-pairings.md`, `layout-patterns.md`, `visual-interest.md` | ~6k |
 | Build | `accessibility-checklist.md`, `layout-patterns.md`, `visual-interest.md` | ~5k |
 | QA | `testing-scripts.md` | ~2k |
 | Launch | `seo-checklist.md` | ~2k |
+| *Conditional* | Additional knowledge loaded only if skill auto-invoked (see Intelligent Routing) | varies |
 
 **For Tier 2/3 models**: Each knowledge file has a TL;DR at the top. Read the TL;DR first — only load the full file if you need detailed reference.
 
@@ -205,7 +215,34 @@ Q2: In one sentence, what does your business/product do?
     Example: "We help remote teams track time and bill clients automatically"
 ```
 
-**2. Conversion Goal**
+**2. Page Category**
+```
+Q2.5: What type of landing page is this?
+
+     1.  SaaS / Software Product (free trial, demo, signup)
+     2.  Ecommerce / Product Page (purchase, add to cart)
+     3.  Portfolio / Personal Brand (showcase work, hire me)
+     4.  IT Support / Tech Services (consultation, quote)
+     5.  Event / Webinar / Conference (registration)
+     6.  Demo / Product Demo (book a demo)
+     7.  Lead Magnet / Resource Download (email for free resource)
+     8.  Agency / Professional Services (get a quote)
+     9.  App Download / Mobile App (install app)
+     10. Coming Soon / Waitlist (join waitlist)
+     11. Nonprofit / Cause (donate, volunteer)
+     12. Real Estate / Property (schedule viewing)
+     13. Other (describe your use case)
+
+     Your choice (1-13):
+```
+
+**CRITICAL**: After the user selects a domain, load ONLY that domain's section from `knowledge/domain-templates.md`. This determines:
+- Which page sections to include (each domain has different required sections)
+- Which data points to collect
+- Which skills to auto-invoke vs skip
+- The appropriate CTA type
+
+**3. Conversion Goal**
 ```
 Q3: What is the ONE action you want visitors to take?
 
@@ -363,6 +400,7 @@ Format:
 {
   "projectName": "",
   "businessDescription": "",
+  "domainCategory": "saas|ecommerce|portfolio|it-support|event|demo|lead-magnet|agency|app|coming-soon|nonprofit|real-estate|other",
   "primaryConversion": "",
   "targetAudience": {
     "who": "",
@@ -420,6 +458,70 @@ BRAND FEEL: {brandPersonality}
 DIFFERENTIATOR: {differentiator}
 
 Does this accurately capture your needs? (yes/edit)
+```
+
+---
+
+## INTELLIGENT SKILL ROUTING
+
+**CRITICAL**: After collecting user input, determine which specialist skills to invoke. This saves tokens and gives domain-appropriate output.
+
+### Step 1: Load the domain template
+Read `knowledge/domain-templates.md` and find the matching domain section. This tells you:
+- Required page sections (each domain is different — a product page ≠ a portfolio ≠ an IT support page)
+- Which skills to "Always invoke", "Auto-invoke", and "Skip"
+
+### Step 2: Parse user's original prompt for explicit skill signals
+Scan the user's initial message for keywords that trigger additional skills:
+
+| Keywords in user prompt | Auto-invoke skill |
+|---|---|
+| "SEO", "search engine", "Google ranking", "meta tags" | `/lp-seo` |
+| "analytics", "tracking", "GA4", "pixel", "conversion tracking" | `/lp-analytics` |
+| "fast", "speed", "performance", "Core Web Vitals", "lightweight" | `/lp-speed` |
+| "A/B test", "split test", "variants", "test different" | `/lp-abtest` |
+| "lead capture", "email capture", "popup", "exit intent", "form optimization" | `/lp-leads` |
+| "funnel", "upsell", "email sequence", "drip", "multi-step" | `/lp-funnel` |
+| "competitor", "vs", "compared to", "differentiate from" | `/lp-competitor` |
+| "inject", "chat widget", "Hotjar", "Intercom", "heatmap", "pixel code" | `/lp-inject` |
+| "content strategy", "blog", "testimonials", "case study", "social proof" | `/lp-content` |
+| "audit", "review my page", "score", "check quality" | `/lp-audit` |
+| "optimize", "CRO", "improve conversions", "reduce bounce" | `/lp-optimize` |
+| "everything", "full service", "complete", "agency-level" | ALL skills |
+
+### Step 3: Build the execution plan
+Combine domain defaults + user signals to create the skill execution list:
+
+```
+ALWAYS RUN (core pipeline):
+  Discovery → Copywriting → Design → Build → QA → Launch
+
+CONDITIONALLY RUN (based on domain + user signals):
+  □ SEO        — auto for: saas, ecommerce, agency, it-support, app
+  □ Analytics  — auto for: saas, ecommerce, agency, event, demo
+  □ Speed      — auto for: ecommerce, app (image-heavy pages)
+  □ Leads      — auto for: it-support, event, demo, lead-magnet, agency, real-estate
+  □ Inject     — auto for: event (countdown), demo (calendar embed)
+
+SKIP UNLESS EXPLICITLY ASKED:
+  □ A/B Test   □ Competitor   □ Funnel   □ Content Strategy   □ CRO Optimize
+```
+
+### Step 4: Token-saving rules
+1. **Minimal request** ("create a portfolio page"): Run ONLY core pipeline (Discovery → Copy → Design → Build). Skip QA, Launch, and all conditional skills.
+2. **Standard request** ("create a SaaS landing page"): Run core pipeline + domain auto-invoke skills (e.g., SEO + Analytics for SaaS).
+3. **Explicit request** ("create a landing page with SEO and analytics"): Run core pipeline + explicitly mentioned skills.
+4. **Full request** ("create a complete landing page with everything"): Run core pipeline + ALL conditional skills.
+
+### Step 5: Show the user what will run
+```
+Based on your requirements, here's what we'll build:
+
+CORE: Discovery → Copy → Design → Build → QA → Launch
+ALSO RUNNING: {list of auto-invoked skills with reason}
+SKIPPING: {list of skipped skills} (you can add these later with /lp-seo, /lp-analytics, etc.)
+
+Proceed? (yes / add more / remove some)
 ```
 
 ---
@@ -600,10 +702,29 @@ Would you like to:
 
 ## COMMANDS
 
-- `/landing-page new` - Start new project
+### Main Commands
+- `/landing-page new` - Start new project (asks domain category)
 - `/landing-page resume {name}` - Continue project
 - `/landing-page list` - Show all projects
 - `/landing-page edit {name}` - Modify existing project
+
+### Companion Skills (invoke directly or auto-invoked by domain)
+
+| Command | What it does | When to use directly |
+|---------|-------------|---------------------|
+| `/lp-copy` | Optimize headlines, body copy, CTAs | Rewrite copy on an existing page |
+| `/lp-seo` | SEO audit + meta tags + schema | Add/fix SEO on any page |
+| `/lp-design` | Color palette, typography, layout system | Create/refine design tokens |
+| `/lp-analytics` | GA4, pixels, event tracking | Add tracking to any page |
+| `/lp-inject` | JavaScript injection (chat, heatmaps, popups) | Add third-party scripts safely |
+| `/lp-audit` | 7-point page audit with scores | Audit any existing page |
+| `/lp-optimize` | CRO analysis + friction reduction | Improve conversion rates |
+| `/lp-funnel` | Multi-page funnel + email sequences | Build complete sales funnels |
+| `/lp-leads` | Forms, popups, exit-intent | Add/improve lead capture |
+| `/lp-abtest` | A/B test setup with variants + tracking | Test specific page elements |
+| `/lp-competitor` | Competitor page teardown | Analyze competitor positioning |
+| `/lp-content` | Content strategy + testimonial templates | Plan content assets |
+| `/lp-speed` | Core Web Vitals + performance optimization | Speed up any page |
 
 ---
 

@@ -1,8 +1,8 @@
 {
   "name": "10x-team-landing-page",
-  "displayName": "10x Team Landing Page Builder",
-  "version": "2.1.0",
-  "description": "Create high-converting landing pages using a multi-agent team with phase-wise development",
+  "displayName": "10x Team Marketing Agency Suite",
+  "version": "3.0.0",
+  "description": "Complete marketing agency toolkit — 14 specialist skills for creating, optimizing, and converting landing pages across 12 domain categories",
   "author": "10x Team",
   "license": "10x Team Proprietary",
   "repository": "https://github.com/Anit-1to10x/10X-Landing-Page",
@@ -12,7 +12,13 @@
     "conversion",
     "copywriting",
     "web-design",
-    "multi-agent"
+    "multi-agent",
+    "seo",
+    "analytics",
+    "cro",
+    "funnel",
+    "lead-capture",
+    "ab-testing"
   ],
   "engines": {
     "claude-code": ">=1.0.0"
@@ -22,8 +28,86 @@
       {
         "name": "landing-page",
         "path": ".claude/skills/landing-page",
-        "description": "Multi-agent landing page creation skill",
+        "description": "Full multi-agent landing page creation with 12 domain categories",
         "triggers": ["/landing-page", "/lp"]
+      },
+      {
+        "name": "lp-copy",
+        "path": ".claude/skills/lp-copy",
+        "description": "Optimize headlines, body copy, CTAs, and microcopy",
+        "triggers": ["/lp-copy"]
+      },
+      {
+        "name": "lp-seo",
+        "path": ".claude/skills/lp-seo",
+        "description": "SEO audit — meta tags, schema, Open Graph, keywords",
+        "triggers": ["/lp-seo"]
+      },
+      {
+        "name": "lp-design",
+        "path": ".claude/skills/lp-design",
+        "description": "Visual design system — colors, typography, layout",
+        "triggers": ["/lp-design"]
+      },
+      {
+        "name": "lp-analytics",
+        "path": ".claude/skills/lp-analytics",
+        "description": "Analytics setup — GA4, pixels, events, UTM tracking",
+        "triggers": ["/lp-analytics"]
+      },
+      {
+        "name": "lp-inject",
+        "path": ".claude/skills/lp-inject",
+        "description": "JavaScript injection — tracking, chat widgets, custom code",
+        "triggers": ["/lp-inject"]
+      },
+      {
+        "name": "lp-audit",
+        "path": ".claude/skills/lp-audit",
+        "description": "7-point page audit — copy, design, SEO, a11y, speed, CRO, mobile",
+        "triggers": ["/lp-audit"]
+      },
+      {
+        "name": "lp-optimize",
+        "path": ".claude/skills/lp-optimize",
+        "description": "Conversion rate optimization — LIFT analysis, friction audit",
+        "triggers": ["/lp-optimize"]
+      },
+      {
+        "name": "lp-funnel",
+        "path": ".claude/skills/lp-funnel",
+        "description": "Multi-step funnel design — lead magnets, upsells, email sequences",
+        "triggers": ["/lp-funnel"]
+      },
+      {
+        "name": "lp-leads",
+        "path": ".claude/skills/lp-leads",
+        "description": "Lead capture — forms, popups, exit-intent, email integration",
+        "triggers": ["/lp-leads"]
+      },
+      {
+        "name": "lp-abtest",
+        "path": ".claude/skills/lp-abtest",
+        "description": "A/B test setup — variants, tracking, hypothesis, analysis",
+        "triggers": ["/lp-abtest"]
+      },
+      {
+        "name": "lp-competitor",
+        "path": ".claude/skills/lp-competitor",
+        "description": "Competitor analysis — teardown, positioning, counter-strategies",
+        "triggers": ["/lp-competitor"]
+      },
+      {
+        "name": "lp-content",
+        "path": ".claude/skills/lp-content",
+        "description": "Content strategy — testimonials, case studies, social proof",
+        "triggers": ["/lp-content"]
+      },
+      {
+        "name": "lp-speed",
+        "path": ".claude/skills/lp-speed",
+        "description": "Performance optimization — Core Web Vitals, images, lazy loading",
+        "triggers": ["/lp-speed"]
       }
     ],
     "agents": [
